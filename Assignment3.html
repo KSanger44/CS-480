@@ -32,25 +32,17 @@
             window.addEventListener("load", start, false);
         </script>
         <!-- Problem 3 --------------------------->
+        
         <script>
-            function lightBG() {
-                document.getElementById("main").style.backgroundColor = "White";
-                document.getElementById("main").style.color = "black";
+            function changeBGC(color){
+                document.body.bgColor = color;
             }
-            
-            function darkBG() {
-                document.getElementById("main").style.backgroundColor = "black";
-                document.getElementById("main").style.color = "white";
-            }
-            
-            function sansFont() {
-                document.getElementById("main").style.fontFamily = "Sans-serif";
-            }
-            
-            function serifFont() {
-                document.getElementById("main").style.fontFamily = "Serif";
-            }
-            </script>
+
+            function changeFont(font){
+                document.body.fontFamily = font;
+
+}
+        </script>>
         <!-- Problem 4 --------------------------->
         <script>
             function highlight() {
@@ -87,16 +79,13 @@
         </form>
 
         <h3>#3 Create a web page in which the user is allowed to select the page’s background color and whether the page uses serif or sans serif fonts. Then change the body element’s style attribute accordingly.</h3>
-            <Form>Options:
-                <button onclick = "lightBG(this)">Light Background</button>
-                <button onclick = "darkBG(this)">Dark Background</button>
-                <button onclick = "sansFont()">Sans-Serif Font</button>
-                <button onclick = "serifFont()">Serif Font</button>
-            </form>
-            <br />
-            <div>
-                <p style="font-size: 18px" id = "main">This is the text that needs to have its background and font changed.</p>
-            </div>
+        <input type="button" onClick="changeBGC('darkgray')" value="Dark Background">
+        <input type="button" onClick="changeBGC('transparent')" value="Light Background">
+        <br>
+        <input type="button" onClick="changeFont('serif')" value="Serif Font">
+        <input type="button" onClick="changeFont('sans-serif')" value="Sans-Serif Font">
+        
+        <p style="font-size: 20px; font-family:sans-serif" id="main">This is the text that needs to have its background color and font changed.</p>
 
         <h3>#4 Write a JavaScript program to highlight the bold words of a paragraph, on mouse over a certain link. </h3>
         <p>
