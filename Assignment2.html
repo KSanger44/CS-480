@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kyle Sanger Assignment 2 CS 480 Fall 2022</title>
+        <link rel="stylesheet" href="assignment2.css">
+    </head>
+
+    <body onload="get_table()">
+        <h3>#1: Write a JavaScript program to find the second smallest number among N user provided integer inputs.</h3>
+
+        <p>Please enter at least 2 integers, enter 'n' when done
+            <input type="text" name="num" id="num"> 
+            <input type="submit" value="Add Number" onclick="submit()"> 
+        </p>
+
+        <p> The second smallest integer is 
+            <input type="number" name="res" id="result" disabled="disabled">
+        </p>
+
+        <script>
+            var numbers = [];
+            function submit() {
+                let nextNum = document.getElementById("num");
+                if(nextNum = "n"){
+                    numbers.sort();
+                    let secondLow = document.getElementById("result");
+                    secondLow.value = numbers[1];
+                    numbers=[];
+                }
+                numbers.push(nextNum.value);  
+                nextNum.value = ''
+            }
+        </script>
+
+        <h3># 2 Write a JavaScript program to display the current day and time in this following format:
+            Today is : Friday. Current time is : 4 PM : 50 : 22 </h3>
+
+            <p>
+                <input type="submit" value="Get Current Time" onclick="getTime()">
+            </p>
+            
+            <p id="result"></p>
+            <script>
+                function getTime(i) {
+                    if (i < 10) {i = "0" + i}
+                    return i;
+                }
+                
+                let d = new Date();
+                let h = getTime(d.getHours());
+                let m = getTime(d.getMinutes());
+                let s = getTime(d.getSeconds());
+                
+                let weekday = new Array(7);
+                    weekday[0] = "Sunday";
+                    weekday[1] = "Monday";
+                    weekday[2] = "Tuesday";
+                    weekday[3] = "Wednesday";
+                    weekday[4] = "Thursday";
+                    weekday[5] = "Friday";
+                    weekday[6] = "Saturday";
+
+                let day = weekday[d.getDay()];
+                
+                var g = h%12;
+                var gh = h/12;
+                var ap;
+
+                if (gh>=1){
+                    ap='PM';
+                }
+                else{
+                    ap='AM';
+                }
+                let time = "Today is : " + day + "." + " Current time is : " + " " + h%12 + " " + ap + " : " + m + " : " + s;
+                document.getElementById("result").innerHTML = time;
+            </script>
+
+        <h3>#3: Write a JavaScript program to list the dates of all Sundays that happened on 1st January between the years 2000 and 2021</h3>
+        <input type="submit" value="Show Sundays" onclick="get_dates()">
+        <p id="sundays"></p>
+        <script>
+            function get_dates() {
+                let currentDate = new Date(2000, 0, 1);
+                let endDate = new Date(2021, 0, 1);
+
+                let sundays = new Array();
+            while (currentDate.getFullYear() <= endDate.getFullYear()) {
+                //if month is jan then get all sundays of january
+                if (currentDate.getMonth() == 0) {
+                    if (currentDate.getDay() == 0) {
+                        sundays.push(currentDate.getMonth() + 1 + "/" + 
+                        currentDate.getDate() + "/" + 
+                        currentDate.getFullYear() + " ");
+                    }
+                    currentDate.setDate(currentDate.getDate() + 1)
+                }
+                //else set date to jan 01 and increment year by 1
+                else {
+                    let curr_year = currentDate.getFullYear();
+                    currentDate.setFullYear(curr_year + 1, 0, 1);
+                }
+            }
+            document.getElementById("sundays").innerHTML = sundays.toString();
+        }
+    </script>
+
+    <h3>Problem 7.16</h3>
+    <div id='tableDiv'></div>
+    <script>
+        function get_table() {
+          var tb = '<table style="border: 1px solid"> <tr> <th>N</th> <th>N*10</th> <th>N*100</th> <th>N*1000</th> </tr>'
+          var tr = ''
+
+          for (var i = 1; i <= 6; i++) {
+            tr += '<tr>';
+            
+              tr += '<td style="border: 1px solid">';
+                tr += i;
+              tr += '</td>';
+              
+              tr += '<td style="border: 1px solid">';
+                tr += i * 10;
+              tr += '</td>';
+    
+              tr += '<td style="border: 1px solid">';
+                tr += i * 100;
+              tr += '</td>';
+    
+              tr += '<td style="border: 1px solid">';
+                tr += i * 1000;
+              tr += '</td>';
+    
+            tr += '</tr>';
+          }
+
+          tb += tr+'</table>'
+
+          document.getElementById('tableDiv').innerHTML=tb;
+        }
+      </script>
+    </body>    
+</html>
