@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 3</title>
+        <!-- Problem 1 ---------------------------->
+        <script>
+            function removeNum()
+        {
+            var x=document.getElementById("number");
+            x.remove(x.selectedIndex);
+        }
+        </script>
+
+        <!-- Problem 2 --------------------------->
+        <script>
+            function incrementFunction() {
+                var counter, value;
+                counter = document.getElementById("counter");
+                value = parseInt(counter.innerHTML, 10);
+                if (value === "NaN") {
+                    value = 0;
+                } else {
+                    value = value + 1;
+                }
+                counter.innerHTML = value;
+            }
+            function start() {
+                var button;
+                button = document.getElementById("incButton");
+                button.addEventListener("click", incrementFunction, false);
+            }
+            window.addEventListener("load", start, false);
+        </script>
+        <!-- Problem 3 --------------------------->
+        <script>
+            function lightBG() {
+                document.getElementById("main").style.backgroundColor = "White";
+                document.getElementById("main").style.color = "black";
+            }
+            
+            function darkBG() {
+                document.getElementById("main").style.backgroundColor = "black";
+                document.getElementById("main").style.color = "white";
+            }
+            
+            function sansFont() {
+                document.getElementById("main").style.fontFamily = "Sans-serif";
+            }
+            
+            function serifFont() {
+                document.getElementById("main").style.fontFamily = "Serif";
+            }
+            </script>
+        <!-- Problem 4 --------------------------->
+        <script>
+            function highlight() {
+            var bolds = document.getElementsByTagName("strong");
+            for (var i = 0; i < bolds.length; i++) {
+                bolds[i].style.color = "blue";
+                }
+            }
+
+            function returnNormal() {
+            var bolds = document.getElementsByTagName("strong");
+            for (var i = 0; i < bolds.length; i++) {
+                bolds[i].style.color = "black";
+                }
+            }
+        </script>    
+    <!-- Body Start-------------------------------->
+    <body>
+        <h3>#1 Write a JavaScript program to remove items from a dropdown list.  </h3>
+        <form>
+            <select id="number">
+                <option>One</option>
+                <option>Two</option>
+                <option>Three</option>
+                <option>Four</option>
+            </select>
+            <input type="button" onclick="removeNum()" value="Select and Remove">
+        </form>
+
+        <h3>#2 Write a script that contains a button and a counter in a div. The button’s event handler should increment the counter each time it’s clicked.</h3>
+        <div id="counter">0</div>
+        <form action="incrementCounter">
+            <input type="button" id="incButton" value="Increment">
+        </form>
+
+        <h3>#3 Create a web page in which the user is allowed to select the page’s background color and whether the page uses serif or sans serif fonts. Then change the body element’s style attribute accordingly.</h3>
+            <Form>Options:
+                <button onclick = "lightBG(this)">Light Background</button>
+                <button onclick = "darkBG(this)">Dark Background</button>
+                <button onclick = "sansFont()">Sans-Serif Font</button>
+                <button onclick = "serifFont()">Serif Font</button>
+            </form>
+            <br />
+            <div>
+                <p style="font-size: 18px" id = "main">This is the text that needs to have its background and font changed.</p>
+            </div>
+
+        <h3>#4 Write a JavaScript program to highlight the bold words of a paragraph, on mouse over a certain link. </h3>
+        <p>
+            <a href="#" onMouseOver="highlight()" onMouseOut="returnNormal()">Mousing over This Link will highlight the bold words in the next paragraph</a>
+        </p>
+        <p>This is a <strong>paragraph</strong> that for some reason <strong>prioritizes</strong> words that start with the letter p and so <strong>puts</strong> them in bold font.
+            The javascript will further <strong>provide proper</strong> emphasis by <strong>placing</strong> a highlight on the <strong>proper</strong> words.
+    </body>
+</html>

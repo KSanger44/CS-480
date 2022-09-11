@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kyle Sanger Assignment 1 CS 480 Fall 2022</title>
+    </head>
+    <body>
+
+        <p> <strong>3.2.1</strong> <span style="background-color:#E5E7E9">input</span> 
+            <strong>Type</strong> <span style="background-color:#E5E7E9">color</span></p>
+        <p>  
+            The <strong><span style="background-color:#E5E7E9">color input</span> 
+            type</strong> <a href = "#" style="color: crimson">Fig. 3.1</a>; lines 20&ndash;21) enables the user to enter a color. 
+            At the time of this writing, most browsers render the <span style="background-color:#E5E7E9">color input</span> 
+            type as a text field in which the user can enter a hexadecamal code or a color name. 
+            In the future, when you click a <span style="background-color:#E5E7E9">color input</span>, 
+            browsers will likely display a <em>color picker</em> similar to the Microsoft 
+            Windows color dialog shown in <a href = "#" style="color: crimson">Fig. 3.2</a>.
+        </p>
+        <div style ="text-align:center">
+            <img src="Fig3.2.jpg" alt="Color Picker">
+
+            <p>Fig. 3.2 Inputting a color in Opera with a color picker control.</p>
+        </div>
+        <p><span style="background-color:#E5E7E9">autofocus</span> <strong>Attribute</strong></p>        
+        <p>
+            The <strong><span style="background-color:#E5E7E9">autofocus</span> attribute</strong> 
+            (<a href = "#" style="color: crimson">Fig. 3.1</a>, line 20)&mdash;an optional 
+            attribute that can be used in only one <span style="background-color:#E5E7E9">input</span> element on a form—automatically gives the focus to 
+            the <span style="background-color:#E5E7E9">input</span> element, allowing the user to begin typing in that element immediately. 
+            <a href = "#" style="color: crimson">Figure 3.3</a> shows <span style="background-color:#E5E7E9">autofocus</span> on the <span style="background-color:#E5E7E9">color</span> element
+            —the first <span style="background-color:#E5E7E9">input</span> element in our form
+            —as rendered in Chrome. You do not need to include <span style="background-color:#E5E7E9">autofocus</span> in your forms.
+        </p>    
+        <div style ="text-align:center">
+            <fig>
+            <img src="Fig3.3.jpg" alt="Autofocus example">
+            </fig>
+            <p>Fig. 3.3 Autofocus in the <span style="background-color:#E5E7E9">color input</span> element using Chrome.</p>
+        </div>    
+        <h3>Validation</h3>
+        <p>
+            Traditionally it&#8217s been difficult to validate user input, such as ensuring that an e-mail 
+            address, URL, date or time is entered in the proper format. The new HTML 5 <span style="background-color:#E5E7E9">input</span>
+             types are <em>self validating</em> on the client side, eliminating the need to add complicated JavaScript 
+             code to your web pages to validate user input, reducing the amount of invalid data submitted and consequently reducing 
+             Internet traffic between the server and the client to correct invalid input. 
+             <em>The server should still validate all user input.</em>
+        </p>
+        <p>
+            When a user enters data into a form then submits the form (in this example, by clicking 
+            the <strong>Submit</strong> button), the browser immediately checks the self-validating elements 
+            to ensure that the data is correct. For example, if a user enters an incorrect hexadecimal 
+            color value when using a browser that renders the <span style="background-color:#E5E7E9">color</span> elements 
+            as a text field (e.g., Chrome), a callout pointing to the element will appear, indicating that an invalid value was entered 
+            (<a href = "#" style="color: crimson">Fig. 3.4</a>). <a href = "#" style="color: crimson">Figure 3.5</a> lists each of the
+             new HTML5 <span style="background-color:#E5E7E9">input</span> types and provides examples of the proper formats required for each type of data to be valid.
+        </p>
+        <div style ="text-align:center">
+            <fig>
+            <img src="Fig3.4.jpg" alt="Validation example">
+            </fig>
+            <p>Fig. 3.4 Validating a <span style="background-color:#E5E7E9">color input</span> in Chrome.</p>
+        </div>    
+        <div style="text-align: center;">
+            <details>
+                <summary>>Fig. 3.5 Self-validating input types. </summary>
+            <table style="background-color: #E5E7E9; display: inline-block; text-align: left;">
+                <caption>Table of new input types (left column) and their formats (right column)</caption>
+                <tr style="background-color:#626567; color:whitesmoke;">
+                    <td style="padding: 15px";><strong>input</strong> type</td>
+                    <td>Format</td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td>Hexadecimal code</td>
+                </tr>
+                <tr>
+                    <td>date</td>
+                    <td>yyyy-mm-dd</td>
+                </tr>
+                <tr>
+                    <td>datetime</td>
+                    <td>yyyy-mm-dd </td>
+                </tr>
+                <tr>
+                    <td>datetime-local</td>
+                    <td>yyyy-mm-ddThh:mm+ff:gg </td>
+                </tr>
+                <tr>
+                    <td>month</td>
+                    <td>yyyy-mm</td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td>Any numerical value. </td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>name@domain.com </td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>http://www.domainname.com </td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>hh:mm </td>
+                </tr>
+                <tr>
+                    <td>week</td>
+                    <td>yyyy-Wnn </td>
+                </tr>
+            </table>
+            </details>
+        </div>
+
+
+    </body>
+</html>
