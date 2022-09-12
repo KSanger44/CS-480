@@ -34,14 +34,17 @@
         <!-- Problem 3 --------------------------->
         
         <script>
-            function changeBGC(color){
-                document.body.bgColor = color;
+            function changeFont(font){
+                document.body.style.fontFamily = font;
+
             }
 
-            function changeFont(font){
-                document.body.fontFamily = font;
+            function changeBGC(choice){
+                document.body.bgColor = choice;
+                
+            }
 
-}
+
         </script>>
         <!-- Problem 4 --------------------------->
         <script>
@@ -85,7 +88,6 @@
         <input type="button" onClick="changeFont('serif')" value="Serif Font">
         <input type="button" onClick="changeFont('sans-serif')" value="Sans-Serif Font">
         
-        <p style="font-size: 20px; font-family:sans-serif" id="main">This is the text that needs to have its background color and font changed.</p>
 
         <h3>#4 Write a JavaScript program to highlight the bold words of a paragraph, on mouse over a certain link. </h3>
         <p>
