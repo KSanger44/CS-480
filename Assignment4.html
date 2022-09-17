@@ -2,12 +2,76 @@
 <html>
     <head>
         <title>Assignment 4</title>
+        <script>
+            function checkName(name){
+                var namePattern = ^[A-Za-z]+[A-Za-z]+$;
+                if (name.value.match(namePattern)){
+                    return true;
+                } 
+                else {
+                    alert("First and last name separated by a space");
+                }
+            }
+
+            function checkPW(pw){
+                var pwPattern = ;
+                if (pw.value.match(pwPattern)){
+                    return true;
+                } 
+                else {
+                    alert("Must be at least 7 characters (letters, and/or digits) with underscore allowed");
+                }
+            }
+
+            function checkAddress(address){
+                var addressPattern = ;
+                if (address.value.match(addressPattern)){
+                    return true;
+                } 
+                else {
+                    alert("1-5 numbers followed by street name (up to 15 characters)");
+                }
+            }
+
+            function checkZIP(zip){
+                var zipPattern = ;
+                if (zip.value.match(zipPattern)){
+                    return true;
+                } 
+                else {
+                    alert("Exactly 5 digits");
+                }
+            }
+
+            function checkDOB(dob){
+                var dobPattern = ;
+                if (dob.value.match(dobPattern)){
+                    return true;
+                } 
+                else {
+                    alert("This format mm-dd-yyyy");
+                }
+            }
+
+            function checkCC(cCard){
+                var cCardPattern = ;
+                if (cCar.value.match(cCarPattern)){
+                    return true;
+                } 
+                else {
+                    alert("This format xxxx-xxxx-xxxx-xxxx");
+                }
+            }
+            
+        </script>
+
     </head>
-    <body>
-        <form action="">
+    <body onload="checkName()">
+        <form>
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name"
-            pattern="^[A-Za-z]+ [A-Za-z]+$"><br>
+            pattern="^[A-Za-z]+[A-Za-z]+$"
+            onkeydown="checkName(name)"><br>
 
             <label for="pw">Password:</label><br>
             <input type="password" id="pw" name="pw"
@@ -15,19 +79,19 @@
 
             <label for="address">Street Address:</label><br>
             <input type="text" id="address" name="address"
-            pattern="[0-9]{1,5}\b [A-Za-z]{,15}$"><br>
+            pattern="^[0-9]{1,5}\b[A-Za-z]{,15}$"><br>
 
             <label for="zip">Zip Code:</label><br>
             <input type="number" id="zip" name="zip"
-            pattern="[0-9]{5}$"><br>
+            pattern="^[0-9]{5}$"><br>
 
             <label for="dob">Date of Birth:</label><br>
             <input type="date" id="dob" name="dob"
-            pattern="1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"><br>
+            pattern="^1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"><br>
 
             <label for="cardNum">Credit Card:</label><br>
             <input type="password" id="cardNum" name="cardNum"
-            pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"><br><br>
+            pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"><br><br>
 
             <input type="submit" value="Submit">
         </form>
