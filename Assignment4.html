@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 4</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name"
+            pattern="^[A-Za-z]+ [A-Za-z]+$"><br>
+
+            <label for="pw">Password:</label><br>
+            <input type="password" id="pw" name="pw"
+            pattern="^[a-zA-Z0-9_]{7,}$"><br>
+
+            <label for="address">Street Address:</label><br>
+            <input type="text" id="address" name="address"
+            pattern="[0-9]{1,5}\b [A-Za-z]{,15}$"><br>
+
+            <label for="zip">Zip Code:</label><br>
+            <input type="number" id="zip" name="zip"
+            pattern="[0-9]{5}$"><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"
+            pattern="1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"><br>
+
+            <label for="cardNum">Credit Card:</label><br>
+            <input type="password" id="cardNum" name="cardNum"
+            pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
