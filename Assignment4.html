@@ -2,96 +2,123 @@
 <html>
     <head>
         <title>Assignment 4</title>
+        <style>
+            .error{
+                color: red;
+            }
+        </style>
+
         <script>
             function checkName(name){
-                var namePattern = ^[A-Za-z]+[A-Za-z]+$;
-                if (name.value.match(namePattern)){
-                    return true;
-                } 
-                else {
-                    alert("First and last name separated by a space");
+                var namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
+                var nameInput = document.getElementById("name").value;
+                var errorSpan = document.getElementById("nameError");
+
+                if (!namePattern.test(nameInput)){
+                    errorSpan.innerHTML = "error, First and last name separated by a space"
+                }
+                else{
+                    errorSpan.innerHTML = ""
                 }
             }
 
             function checkPW(pw){
-                var pwPattern = ;
-                if (pw.value.match(pwPattern)){
-                    return true;
-                } 
-                else {
-                    alert("Must be at least 7 characters (letters, and/or digits) with underscore allowed");
+                var pwPattern = /^[a-zA-Z0-9_]{7,}$/;
+                var pwInput = document.getElementById("pw").value;
+                var errorSpan = document.getElementById("pwError");
+
+                if (!pwPattern.test(pwInput)){
+                    errorSpan.innerHTML = "error, Must be at least 7 characters (letters, and/or digits) with underscore allowed"
+                }
+                else{
+                    errorSpan.innerHTML = ""
                 }
             }
 
             function checkAddress(address){
-                var addressPattern = ;
-                if (address.value.match(addressPattern)){
-                    return true;
-                } 
-                else {
-                    alert("1-5 numbers followed by street name (up to 15 characters)");
+                var addressPattern = /^[0-9]{1,5}\s\w[A-Za-z]{0,5}$/;
+                var addressInput = document.getElementById("address").value;
+                var errorSpan = document.getElementById("addressError");
+
+                if (!addressPattern.test(addressInput)){
+                    errorSpan.innerHTML = "error, 1-5 numbers followed by street name (up to 15 characters)"
+                }
+                else{
+                    errorSpan.innerHTML = ""
                 }
             }
 
             function checkZIP(zip){
-                var zipPattern = ;
-                if (zip.value.match(zipPattern)){
-                    return true;
-                } 
-                else {
-                    alert("Exactly 5 digits");
+                var zipPattern = /^[0-9]{5}$/;
+                var zipInput = document.getElementById("zip").value;
+                var errorSpan = document.getElementById("zipError");
+
+                if (!zipPattern.test(zipInput)){
+                    errorSpan.innerHTML = "error, Exactly 5 digits"
+                }
+                else{
+                    errorSpan.innerHTML = ""
                 }
             }
 
-            function checkDOB(dob){
-                var dobPattern = ;
-                if (dob.value.match(dobPattern)){
-                    return true;
-                } 
-                else {
-                    alert("This format mm-dd-yyyy");
-                }
-            }
+            function checkcCard(cCard){
+                var cCardPattern = /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
+                var cCardInput = document.getElementById("cCard").value;
+                var errorSpan = document.getElementById("cCardError");
 
-            function checkCC(cCard){
-                var cCardPattern = ;
-                if (cCar.value.match(cCarPattern)){
-                    return true;
-                } 
-                else {
-                    alert("This format xxxx-xxxx-xxxx-xxxx");
+                if (!cCardPattern.test(cCardInput)){
+                    errorSpan.innerHTML = "error, This format xxxx-xxxx-xxxx-xxxx"
+                }
+                else{
+                    errorSpan.innerHTML = ""
                 }
             }
-            
+        
         </script>
 
     </head>
-    <body onload="checkName()">
+    <body>
         <form>
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name"
-            pattern="^[A-Za-z]+[A-Za-z]+$"
-            onkeydown="checkName(name)"><br>
+            pattern="^[A-Za-z]+\s[A-Za-z]+$"
+            onkeydown="checkName()">
+            <span class ="error" id ="nameError"></span>
+            <br>
 
             <label for="pw">Password:</label><br>
             <input type="password" id="pw" name="pw"
-            pattern="^[a-zA-Z0-9_]{7,}$"><br>
+            pattern="^[a-zA-Z0-9_]{7,}$"
+            onkeydown="checkPW()">
+            <span class ="error" id ="pwError"></span>
+            <br>
 
             <label for="address">Street Address:</label><br>
             <input type="text" id="address" name="address"
-            pattern="^[0-9]{1,5}\b[A-Za-z]{,15}$"><br>
+            pattern="^[0-9]{1,5}\s\w[A-Za-z]{0,5}$"
+            onkeydown="checkAddress()">
+            <span class ="error" id ="addressError"></span>
+            <br>
 
             <label for="zip">Zip Code:</label><br>
             <input type="number" id="zip" name="zip"
-            pattern="^[0-9]{5}$"><br>
+            pattern="^[0-9]{5}$"
+            onkeydown="checkZIP()">
+            <span class ="error" id ="zipError"></span>
+            <br>
 
             <label for="dob">Date of Birth:</label><br>
             <input type="date" id="dob" name="dob"
-            pattern="^1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"><br>
+            pattern="^1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$">
+            <span class ="error" id ="dobError"></span>
+            <br>
 
             <label for="cardNum">Credit Card:</label><br>
             <input type="password" id="cardNum" name="cardNum"
-            pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"><br><br>
+            pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
+            onkeydown="checkcCard()">><br>
+            <span class ="error" id ="cCardError"></span>
+            <br>
 
             <input type="submit" value="Submit">
         </form>
