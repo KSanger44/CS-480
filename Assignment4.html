@@ -61,9 +61,9 @@
                 }
             }
 
-            function checkcCard(cCard){
+            function checkcCard(cardNum){
                 var cCardPattern = /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
-                var cCardInput = document.getElementById("cCard").value;
+                var cCardInput = document.getElementById("cardNum").value;
                 var errorSpan = document.getElementById("cCardError");
 
                 if (!cCardPattern.test(cCardInput)){
@@ -116,10 +116,9 @@
             <label for="cardNum">Credit Card:</label><br>
             <input type="password" id="cardNum" name="cardNum"
             pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
-            onkeydown="checkcCard()">><br>
+            onkeydown="checkcCard()"><br>
             <span class ="error" id ="cCardError"></span>
             <br>
-
             <input type="submit" value="Submit">
         </form>
     </body>
