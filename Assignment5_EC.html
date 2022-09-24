@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Assignment</title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'>
+        </script>
+    </head>    
+    <body>
+        <h5>Create an input element and a button. The user fills the input element with a tag name, and when the button is clicked, 
+            show an alert box indicating how many occurrences of that tag exist in the page. Consider the case that a tag does not exist in page.
+        </h5>
+        <p>Paragraph 1</p>
+        <input type="text" id="input">
+        <button>Find number of tags</button>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    var val = $("#input").val();
+                    var count = $(document).find(val).length
+                    alert("There are " + count + " <" + val + "> tags in the document");
+                    console.log(count);
+                })
+            })
+        </script>
+    </body>
+</html>
