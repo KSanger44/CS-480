@@ -17,10 +17,10 @@
         <script>
             $(document).ready(function(){
                 $("button").click(function(){
-                    var val = $("#input").val()
-                    var np = document.createElement("p");
-                    np.innerText = val
-                    $("#d").append(np);
+                    var val = $("#input").val()// get input from textbox
+                    var np = document.createElement("p"); // create <p> tags for the input
+                    np.innerText = val // fill new paragraph with the input
+                    $("#d").append(np); // append filled paragraph to the div
                 })
             })
         </script>
