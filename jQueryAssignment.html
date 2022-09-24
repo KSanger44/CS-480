@@ -10,14 +10,17 @@
         <p>1. Create an input element and a button that when clicked, 
             the content of the input element will be prefixed and postfixed with p tags
              and appended to an existing div inside the page. The div keeps growing everytime you click the button.</p>
+
              <input class="input" type="text">
              <input type="button" value="Append" id="appendButton">
+
              <div id="appenDiv">
 
             </div>
+            
              <script>
                 function appendText(){
-                    var text = $("input[type=text]").val(); //get input
+                    var text = $(".input").val(); //get input
                     $("text").prepend("<p>").append("</p>") //prefix and postfix with p tags
                     
                     $(document).ready(function(){
@@ -65,5 +68,19 @@
             <p>Create an input element and a button. The user fills the input element with a tag name, 
                 and when the button is clicked, show an alert box indicating how many occurrences of that tag exist in the page. 
                 Consider the case that a tag does not exist in page.</p>
+            
+            <input type="text" id="ECinput">
+            <input type="button" value="Search for Tag" id="ECButton">
+            <script>
+                $(document).ready(function(){
+                    $("#ECButton").click(function(){
+                        var elem = $("#ECinput").val();
+                        var res = $(document).get(elem).length();
+                        $('#result').html() = res;
+                    });
+                });    
+            </script>
+            <p id="result"></p>
+
     </body>
 </html>
