@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Assignment</title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'>
+            $(document).ready(function(){
+                $('button').click(function(){
+                    var val = $('#input').val();
+                    $('#d').append(val);
+                })
+            })
+        </script>
+    </head>    
+    <body>
+        <h5>Create an input element and a button that when clicked,
+            the content of the input element will be prefixed and postfixed
+            with p tags and appended to an existing div inside the page. The div
+             keeps growing everytime you click the button.
+        </h5>
+        <input type="text" id="input">
+        <button>Append</button>
+        <div id="d"></div>
+    </body>
+</html>
