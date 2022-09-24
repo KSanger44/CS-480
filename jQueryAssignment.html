@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,4 +33,40 @@
              </script>
 
     </body>
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Assignment</title>
+        <script src="jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        <h3>Part1</h3>
+        <p>1. Create an input element and a button that when clicked, 
+            the content of the input element will be prefixed and postfixed with p tags
+             and appended to an existing div inside the page. The div keeps growing everytime you click the button.</p>
+             <input class="input" type="text">
+             <input type="button" value="Append" id="appendButton">
+             <div id="appenDiv">
+
+            </div>
+             <script>
+                function appendText(){
+                    var text = $("input[type=text]").val(); //get input
+                    var newP = document.createElement("p"); // create new p
+                    newP.innerText = text; // set new paragraph text to input
+                    
+
+                    $(document).ready(function(){
+
+                        $("appendButton").click(function(){
+                            $("appenDiv").append("newP");
+                         });
+                    });
+                };
+             </script>
+
+    </body>
+>>>>>>> 0aea3845b65be65d9957ab8f0ca15f8d7c48a05a
 </html>
