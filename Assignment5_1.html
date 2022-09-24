@@ -17,9 +17,10 @@
         <script>
             $(document).ready(function(){
                 $("button").click(function(){
-                    var val = $("#input").val().prepend('<p>').append('</p>');
-                    
-                    $("#d").append(val);
+                    var val = $("#input").val()
+                    var np = document.createElement("p");
+                    np.innerText = val
+                    $("#d").append(np);
                 })
             })
         </script>
