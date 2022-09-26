@@ -2,85 +2,77 @@
 <html>
     <head>
         <title>jQuery Assignment</title>
-        <script src="jquery-3.6.0.min.js"></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     </head>
 
     <body>
-        <h3>Part 1</h3>
-        <p>1. Create an input element and a button that when clicked, 
-            the content of the input element will be prefixed and postfixed with p tags
-             and appended to an existing div inside the page. The div keeps growing everytime you click the button.</p>
+        <h5>Create an input element and a button that when clicked,
+            the content of the input element will be prefixed and postfixed
+            with p tags and appended to an existing div inside the page. The div
+             keeps growing everytime you click the button.
+        </h5>
+        <input type="text" id="input">
+        <button id="b1">Append</button>
+        <div id="d"></div>
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    var val = $("#input").val()// get input from textbox
+                    var np = document.createElement("p"); // create <p> tags for the input
+                    np.innerText = val // fill new paragraph with the input
+                    $("#d").append(np); // append filled paragraph to the div
+                })
+            })
+        </script>
 
-             <input class="input" type="text">
-             <input type="button" value="Append" id="appendButton">
+        <h5>Create a div and give it a border, background-color, width, and height. 
+            Using css() method of jQuery, try to resize both width and height and also 
+            change the background color of the div once the user clicks a button.
+        </h5>
 
-             <div id="appenDiv">
+        <div id="d1" style="border: 5px solid; background-color: aqua; width: 500px; height: 500px;"></div>
+        <button id="b2">Change Div</button>
+        <script>
+            $(document).ready(function(){
+                $("#b2").click(function(){
+                    $("#d1").css("background", "red").css("height", "100px").css("width", "100px");
+                })
+            })
+        </script>
 
-            </div>
-            
-             <script>
-                function appendText(){
-                    var text = $(".input").val(); //get input
-                    $("text").prepend("<p>").append("</p>") //prefix and postfix with p tags
-                    
-                    $(document).ready(function(){
+        <h5>Use the fadeIn() method of jQuery to allow 3 paragraphs to show on page once the user click the button.
+        </h5>
+        <button id="b3">Fade in Paragraphs</button>
+        <p id="fadeP" style="display: none;">The first paragraph</p>
+        <p id="fadeP" style="display: none;">The second paragraph</p>
+        <p id="fadeP" style="display: none;">The third paragraph</p>
 
-                        $("#appendButton").click(function(){
-                            $("#appenDiv").innerHTML.append("text");
-                         });
-                    });
-                };
-             </script>
+        <script>
+            $(document).ready(function(){
+                $("#b3").click(function(){
+                    $("p").fadeIn(1000);
+                })
+            })
+        </script>
 
-             <h3>Part 2</h3>
-             <p>Create a div and give it a border, background-color, width, and height. Using css() method of jQuery, 
-                try to resize both width and height and also change the background color of the div once the user clicks a button.</p>
+        <h5>Create an input element and a button. The user fills the input element with a tag name, and when the button is clicked, 
+            show an alert box indicating how many occurrences of that tag exist in the page. Consider the case that a tag does not exist in page.
+        </h5>
+        <p>Paragraph 1</p>
+        <input type="text" id="input2">
+        <button id="b4">Find number of tags</button>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
 
-            <script>
-                $(document).ready(function(){
-                    $("#CSSButton").click(function(){
-                        $("#cssDiv").css("background", "red").css("height", "100px").css("width", "100px");
-                    });
-                });
-            </script>
-
-            <div id="cssDiv" style="border: 200px; background-color: aqua; width: 500px; height: 500px;">
-                <p>Div with Boarder, background color, width, and height</p>
-            </div>
-            <br>
-            <input type="button" value="Change the CSS of the div above" id="CSSButton">
-
-            <h3>Part 3</h3>
-            <p>Use the fadeIn() method of jQuery to allow 3 paragraphs to show on page once the user click the button.</p>
-            <input type="button" value="Fade in Paragraphs" id="FadeButton">
-
-            <script>
-                $("#FadeButton").click(function(){
-                     $(".fadeP").fadeIn();
-                });
-            </script>
-
-            <p id="fadeP" style="display: none;">The first paragraph</p>
-            <p id="fadeP" style="display: none;">The second paragraph</p>
-            <p id="fadeP" style="display: none;">The third paragraph</p>
-
-            <h3>Extra Credit</h3>
-            <p>Create an input element and a button. The user fills the input element with a tag name, 
-                and when the button is clicked, show an alert box indicating how many occurrences of that tag exist in the page. 
-                Consider the case that a tag does not exist in page.</p>
-            
-            <input type="text" id="ECinput">
-            <input type="button" value="Search for Tag" id="ECButton">
-            <script>
-                $(document).ready(function(){
-                    $("#ECButton").click(function(){
-                        var elem = $("#ECinput").val();
-                        var res = $(document).get(elem).length();
-                        $('#result').html() = res;
-                    });
-                });    
-            </script>
-            <p id="result"></p>
-
+        <script>
+            $(document).ready(function(){
+                $("#b4").click(function(){
+                    var val = $("#input2").val();
+                    var count = $(document).find(val).length
+                    alert("There are " + count + " <" + val + "> tags in the document");
+                    console.log(count);
+                })
+            })
+        </script>
     </body>
 </html>
