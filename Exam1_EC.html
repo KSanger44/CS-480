@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exam 1 EC</title>
+        <meta charset="utf-8"/>
+        <style>
+            .error{
+                color: red;
+            }
+        </style>
+
+        <script>
+            function checkName(name){
+                var namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
+                var nameInput = document.getElementById("name").value;
+                var errorSpan = document.getElementById("nameError");
+
+                if (!namePattern.test(nameInput)){
+                    errorSpan.innerHTML = "error, Name in this format --  FirstName LastName"
+                }
+
+            }
+
+            function checkPhone(phone){
+                var phonePattern = /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/;
+                var phoneInput = document.getElementById("phone").value;
+                var errorSpan = document.getElementById("phoneError");
+
+                if (!phonePattern.test(phoneInput)){
+                    errorSpan.innerHTML = "error, Phone number in this format -- (xxx) xxx-xxxx where x is a number"
+                }
+                else{
+                    errorSpan.innerHTML = ""
+                }
+            }
+
+            function checkZip(zip){
+                var zipPattern = /^[0-9]{5}$/;
+                var zipInput = document.getElementById("zip").value;
+                var errorSpan = document.getElementById("zipError");
+
+                if (!zipPattern.test(zipInput)){
+                    errorSpan.innerHTML = "error, Zip Code: Exactly 5 digits"
+                }
+                else{
+                    errorSpan.innerHTML = ""
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form>
+            <label for="name">First and Last Name</label><br>
+            <input type="text" id="name" name="name">
+            <span class ="error" id ="nameError"></span>
+            <br>
+            <label for="phone">Phone number</label><br>
+            <input type="text" id="phone" name="phone">
+            <span class ="error" id ="phoneError"></span>
+            <br>
+            <label for="zip">Zip Code</label><br>
+            <input type="text" id="zip" name="zip">
+            <span class ="error" id ="zipError"></span>
+            <br>
+            <input type="submit" value="Submit" onclick="checkName(); checkPhone(); checkZip();">
+        </form>
+    </body>
+</html>

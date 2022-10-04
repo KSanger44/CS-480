@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question 12</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            li  {
+                background-color: orange;
+                padding: 10px;
+                margin: 5px;
+
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#displayChange").click(function(){
+                    var newDisplay = $("#displays").val();
+                    $("li").css("display", newDisplay);
+                });
+                
+            });
+    </script>       
+    </head>
+    <body>
+        <ol>
+            <li>Pumpkin</li>
+            <li>Squash</li>
+            <li>Carrot</li>
+        </ol>
+        <br>
+            <label for="disp">Select how to display the list of items:</label>
+            <select name="disp" id="displays">
+                <option value="inline">Inline</option>
+                <option value="block">Block</option>
+                <option value="inline-block">Inline-block</option>
+            </select>
+            <button id="displayChange">Click to change the display</button>  
+    </body>
+</html>
