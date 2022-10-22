@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+      
+      </head>
+      
+      <body>
+        <p>Please provide a country name</p>
+        <input type="text" id="input">
+        <button id="search">Search</button>
+      
+        
+        <div id="table_div"></div>
+        <br>
+        <div id="flag_div"> <img id="flag" style="border: 1px solid black;"> </div>
+        <br>
+        <div id="geo_div" style="width: 900px; height: 500px;"></div>
+
+      <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+                var country = $("#input").val();
+                var url = 'https://disease.sh/v3/covid-19/countries/'+ country + '?strict=true';
+                $.get(url, function(data){
+                    var countryName = data.country;
+                    var covidCases = data.cases;
+                    var population = data.population;
+                    var flag = data.countryInfo.flag;
+                    $("#table_div").html('<table>' + '<tr>' + '<th>' + 'Country' + '</th>' + '<th>' + 'Covid Cases' + '</th>'+ '<th>' + 'Population' + '</th>' + '</tr>' +
+                        '<tr>' + '<td>' + countryName + '</td>' + '<td>' + covidCases + '</td>' + '<td>' + population + '</td>' + '</tr>' + '</table>');
+                    
+                     
+                    document.getElementById('flag').src = flag;
+
+                    
+                });
+            });
+        });
+      </script>
+      
+      </body>
+</html>
