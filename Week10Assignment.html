@@ -2,7 +2,15 @@
 <html>
     <head>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-      
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {
+            'packages':['geochart'],
+          });
+          google.charts.setOnLoadCallback(drawRegionsMap);
+
+
+          </script>
       </head>
       
       <body>
@@ -15,7 +23,7 @@
         <br>
         <div id="flag_div"> <img id="flag" style="border: 1px solid black;"> </div>
         <br>
-        <div id="geo_div" style="width: 900px; height: 500px;"></div>
+        <div id="regions_div"></div>
 
       <script>
         $(document).ready(function () {
@@ -27,16 +35,32 @@
                     var covidCases = data.cases;
                     var population = data.population;
                     var flag = data.countryInfo.flag;
+
                     $("#table_div").html('<table>' + '<tr>' + '<th>' + 'Country' + '</th>' + '<th>' + 'Covid Cases' + '</th>'+ '<th>' + 'Population' + '</th>' + '</tr>' +
                         '<tr>' + '<td>' + countryName + '</td>' + '<td>' + covidCases + '</td>' + '<td>' + population + '</td>' + '</tr>' + '</table>');
                     
                      
                     document.getElementById('flag').src = flag;
 
-                    
+                   drawRegionsMap(countryName, covidCases);
                 });
             });
         });
+
+        function drawRegionsMap(countryName, covidCases) {
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Covid Cases'],
+                [countryName, covidCases]
+
+            ]);
+
+            var options = {};
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+
       </script>
       
       </body>
