@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML>
+<html>
+  
+<head>
+    <title>Cookie Assignment</title>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+  
+<body style="text-align:center;">
+
+    <form>
+        <h3>Please enter a name to be saved</h3>
+        <input type="text" id="name">
+        <button id="saveName">Save Cookie</button>
+        <br>
+        <button id="delete">Delete Cookie</button>
+    </form>
+  
+    <button onclick="showCookie()"> Show Cookies </button>
+    <p id="GFG_DOWN" style="color:green;
+        font-size: 26px; font-weight: bold;"> </p>
+  
+    <script>
+    var el_up = document.getElementById("GFG_UP");
+    var el_down = document.getElementById("GFG_DOWN");
+    el_up.innerHTML = "Click on the button to " 
+    + "get the stored cookies.";
+
+    function setCookie(cname, cvalue, exmins) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+    function getCookies() {
+        var cookies = document.cookie.split(';');
+        var ret = '';
+        for(var i = 1; i <= cookies.length; i++) {
+            ret += i + ' - ' + cookies[i - 1] + "<br>";
+        }
+        return ret;
+    }
+  
+    function showCookie() {
+        el_down.innerHTML = getCookies();
+    }
+    </script>
+</body>
+  
+</html>

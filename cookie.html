@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cookies Assignment</title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <!-------Set, get, and show Cookie methods----->
+        <script>
+            function setCookie(cname, cvalue, exmins) {
+
+            var cvalue = document.getElementById("name").value;
+
+            const d = new Date();
+            d.setTime(d.getTime() + (exmins*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                };
+            };
+            return "";
+            };
+            
+            function showCookie() {
+            let user = getCookie("username");
+            if (user != "") {
+                document.getElementById("np").innerHTML = user;
+            } else {
+                setCookie("username", user, 5);
+                };
+            };
+        </script>
+
+        <!--Try to show cookie with jquery/getCookie method-->
+        <script>
+            $("#np").html(getCookie(username));
+        </script>
+
+        <!--Try to show cookie with js/getCookie -->
+        <script>
+            var cookieDiv = document.getElementById("cdiv");
+            cookieDiv.innerHTML = getCookie(username);
+        </script>
+
+    </head>
+        <!--Try to show loading body-->
+    <body onload="showCookie()">
+
+        <form>
+            <h3>Please enter a name to be saved</h3>
+            <input type="text" id="name">
+            <button id="saveName" onclick="setCookie('username', this, 5)">Save Cookie</button>
+            <br>
+            <button id="delete">Delete Cookie</button>
+        </form>
+
+        <div id="cdiv" style="background-color: gray;">
+            
+            <p id="np"></p>
+        </div>
+
+        <!-------Save and delete buttons---------------->
+        <script>
+            $(document).ready(function(){
+                $("#saveName").click(function(){
+                    var name = $("#name").val();
+                    setCookie('username', name, 5);
+                });
+            });
+            
+            $(document.ready(function(){
+                $('#delete').click(function(){
+                    setCookie('name', '', 0)
+                })
+            }))
+        </script>
+
+    </body>
+</html>
