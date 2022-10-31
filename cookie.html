@@ -41,6 +41,17 @@
                 setCookie("username", user, 5);
                 };
             };
+
+            function deleteCookies() {
+            var cookies = document.cookie.split(";");
+        
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1999 00:00:00 GMT";
+            }
+        }
         </script>
 
         <!--Try to show cookie with jquery/getCookie method-->
@@ -63,7 +74,7 @@
             <input type="text" id="name">
             <button id="saveName" onclick="setCookie('username', this, 5)">Save Cookie</button>
             <br>
-            <button id="delete">Delete Cookie</button>
+            <button id="delete" onclick="deleteCookies()">Delete Cookie</button>
         </form>
 
         <div id="cdiv" style="background-color: gray;">
@@ -82,7 +93,7 @@
             
             $(document.ready(function(){
                 $('#delete').click(function(){
-                    setCookie('name', '', 0)
+                    setCookie('username', '', 0)
                 })
             }))
         </script>
