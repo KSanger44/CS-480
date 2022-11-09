@@ -52,6 +52,10 @@
                 document.cookie = name + "=;expires=Thu, 01 Jan 1999 00:00:00 GMT";
             }
         }
+
+            function deleteUserCookie(){
+                document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+            }
         </script>
 
         <!--Try to show cookie with jquery/getCookie method-->
@@ -74,7 +78,7 @@
             <input type="text" id="name">
             <button id="saveName" onclick="setCookie('username', this, 5)">Save Cookie</button>
             <br>
-            <button id="delete" onclick="deleteCookies()">Delete Cookie</button>
+            <button id="delete" onclick="deleteUserCookie()">Delete Cookie</button>
         </form>
 
         <div id="cdiv" style="background-color: gray;">
@@ -93,7 +97,7 @@
             
             $(document.ready(function(){
                 $('#delete').click(function(){
-                    setCookie('username', '', 0)
+                    deleteUserCookie();
                 })
             }))
         </script>
